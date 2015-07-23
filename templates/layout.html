@@ -1,0 +1,72 @@
+{% load static from staticfiles  %}
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Charles Thomas">
+        <meta name="description" content="The personal blog and site of a teenage developer.">
+        <link href='http://fonts.googleapis.com/css?family=Arvo:400,400italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <title>{% block title %}Charles Thomas | Developer {% endblock %}</title>
+        <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.min.css" />
+    </head>
+    <body>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&appId=644334525693753&version=v2.3";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+        <div id="wrap">
+            <header>
+                <nav id="site-nav">
+                    <h1>Charles Thomas</h1>
+                    <div class="v-wrap">
+                        <div class="v-box">
+                            <ul class="">
+                                <li>
+                                    <a href="{% url 'mysite:posts_listing' %}">
+                                        BLOG
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'mysite:about' %}">
+                                        ABOUT
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'mysite:projects_listing' %}">
+                                        PORTFOLIO
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'mysite:contact' %}">
+                                        CONTACT
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+            </header>
+            <div class="main">
+                {% block body %}
+                {% endblock %}
+            </div>
+        </div>
+        <footer>
+            <p class="footer">
+                &copy; Charles Thomas 2015
+            </p>
+        </footer>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+        {% block extra_js %}
+        {% endblock %}
+    </body>
+</html>

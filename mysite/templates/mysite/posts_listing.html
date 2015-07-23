@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+    <h3>Posts</h3>
+    <table id="posts-table">
+        <tbody>
+            {% for post in posts %}
+                <tr>
+                    <td>
+                        {{ post.title }} - {{ post.posted_at }}
+                    </td>
+
+                    <td>
+                        <button class="btn btn-info btn-lg" onclick="location.href='{% url 'mysite:post_detail' pk=post.pk %}'">
+                            View
+                        </button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

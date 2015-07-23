@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block title %}
+    {{ project.title }}
+{% endblock %}
+{% block body %}
+    <h3>
+        {{ project.title }}
+        <br>
+        <small class="date">{{ project.posted_at }}</small>
+    </h3>
+
+    <a href="{{ project.link }}">{{ project.link }}</a>
+
+    {{ html_description }}
+
+    <button class="btn btn-info btn-lg" onclick="location.href='{% url 'mysite:projects_listing' %}'">
+        Go Back
+    </button>
+{% endblock %}
